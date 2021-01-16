@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 const Campground = require('./models/campground');
 const methodOverride = require('method-override');
-const ejsMate = require('ejs-mate');
+const ejsMate = require('ejs-mate'); //added module
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/yelp-camp', { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
@@ -14,7 +14,7 @@ db.once('open', function () {
     console.log('database connected!')
 });
 
-app.engine('ejs', ejsMate);
+app.engine('ejs', ejsMate); //use ejs-mate, it is before set the view engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 
