@@ -55,9 +55,9 @@ app.put('/campgrounds/:id', async (req, res) => {
     res.redirect(`/campgrounds/${campground._id}`)
 })
 
-app.delete('/campgrounds/:id', async (req, res) => {
+app.delete('/campgrounds/:id', async (req, res) => { 
     await Campground.findByIdAndDelete(req.params.id);
-    res.redirect('/campgrounds')
+    res.redirect('/campgrounds') //with the '/'!!! or it is not a valid route
 })
 
 app.listen(3000, () => {
