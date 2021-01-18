@@ -1,0 +1,48 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="text-center">
+
+    <div class="container mt-2">
+        <div class="row mb-3">
+            <div class="card mb-3">
+                <div class="card-title">
+                    <img src="<%= campground.image %>" class="img-thumbnail max-width: 5% height: auto" alt="...">
+                </div>
+                <div class="card-body">
+                    <h2><%= campground.title %></h2>
+                    <h3><%= campground.location %> </h3>
+                    <p><%= campground.description %></p>
+                    <p>$<%= campground.price %>/day</p>
+                </div>
+                <div class="d-grid gap-2 d-md-block">
+                    <a class="btn btn-primary" href="/campgrounds/<%= campground.id %>/edit ">Edit</a>
+                    <form class="d-inline" action="/campgrounds/<%= campground._id %>?_method=DELETE " method="POST">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Delete
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    Are you sure to delete this campground?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
