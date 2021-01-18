@@ -19,14 +19,15 @@
     <div class="row mb-3">
         <div class="col-sm-10">
             <label for="image" class="col-sm-2 col-form-label">Image Url</label>
-            <input type="text" class="form-control" id="image" name="campground[image]" required>
+            <input type="text" class="form-control" id="image" name="campground[image]" value="<%= campground.image %>"
+                required>
         </div>
     </div>
     <div class="row mb-3">
         <div class="col-sm-10">
             <label for="description" class="col-sm-2 col-form-label">Description</label>
             <textarea type="text" class="form-control" id="description" name="campground[description]"
-                required></textarea>
+                value="<%= campground.description %>" required></textarea>
         </div>
     </div>
     <div class="row mb-3">
@@ -34,11 +35,12 @@
             <label for="price" class="col-form-label">Campground Price</label>
             <div class="input-group">
                 <span class="input-group-text" id="price-label">$</span>
-                <input type="text" class="form-control" id="price" name="campground[price]" placeholder="0.00" required>
+                <input type="text" class="form-control" id="price" name="campground[price]"
+                    value="<%= campground.price %>" required>
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Update Campground</button>
+    <button type=" submit" class="btn btn-primary">Update Campground</button>
 </form>
 <br>
 <a href="/campgrounds/<%= campground.id %> ">Back to Campground</a>
