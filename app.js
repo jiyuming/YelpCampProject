@@ -11,7 +11,7 @@ const campgrounds = require('./routes/campgrounds');
 const reviews = require('./routes/reviews');
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/yelp-camp', { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false });
+mongoose.connect('mongodb://localhost:27017/yelp-camp', { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false });  //useFindAndModify, not showing mongoose warnings
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -25,14 +25,14 @@ app.set('views', path.join(__dirname, '/views'));
 
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
-app.use(express.static(path.join(__dirname, '/public')))
+app.use(express.static(path.join(__dirname, '/public')))  //public path is static now, do not need to rewrite it when use it
 
 const sessionConfig = {
     secret: 'actual secret in production',
     resave: false,
     saveUninitialized: true,
     cooike: {
-        httpOnly: true,
+        httpOnly: true,  //a safe option
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7
     }
