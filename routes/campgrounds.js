@@ -20,7 +20,7 @@ router.get('/', catchAsync(async (req, res) => {
     res.render('campgrounds/index', { campgrounds })
 }))
 
-router.get('/new', (req, res) => {  //not '/campgrounds/new' !!!!!! in 'app.js', '/campgrounds' is already provided, same for below routes
+router.get('/new', (req, res) => {  //not '/campgrounds/new' !!!!!! in 'app.js', '/campgrounds' is already provided, same for following routes
     res.render('campgrounds/new');
 })
 
