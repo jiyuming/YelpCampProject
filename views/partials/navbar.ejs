@@ -16,6 +16,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/campgrounds/new">New Campground</a>
                 </li>
+                <!-- if user not logged in, show login/register options-->
                 <% if(!currentUser) { %>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -30,6 +31,7 @@
                         <li><a class="dropdown-item" href="register"><strong>Register</strong></a></li>
                     </ul>
                 </li>
+                <!-- if user is logged in, show logout option -->
                 <% } else { %>
                 <li class="nav-item">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
