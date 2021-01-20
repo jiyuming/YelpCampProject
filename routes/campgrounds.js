@@ -4,7 +4,7 @@ const router = express.Router();
 const catchAsync = require('../utils/catchAsync');
 const ExpressError = require('../utils/ExpressError');
 const Campground = require('../models/campground');
-const { isLoggedIn } = require('../middleware');
+const { isLoggedIn } = require('../middleware'); //must have {}, https://stackoverflow.com/questions/41058569/what-is-the-difference-between-const-and-const-in-javascript
 
 const validateCampground = (req, res, next) => {
     const { error } = campgroundSchema.validate(req.body);
