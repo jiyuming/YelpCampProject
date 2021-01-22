@@ -40,6 +40,7 @@
                     <div class="card-body">
                         <h6 class="card-title">Rating: <%= review.rating %> </h6>
                         <p class="card-text">Review: <%= review.body %> </p>
+                        <!-- only show DELETE button when user logged in-->
                         <% if(currentUser) { %>
                         <form action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=DELETE"
                             method="POST">
