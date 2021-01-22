@@ -1,0 +1,40 @@
+<% layout('layouts/boilerplate') %>
+<form action="/campgrounds" method="POST" novalidate class="validated-form">
+    <div class="row mb-3">
+        <div class="col-sm-10">
+            <label for="title" class="col-sm-2 col-form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="campground[title]" required>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-10">
+            <label for="location" class="col-sm-2 col-form-label">Location</label>
+            <input type="text" class="form-control" id="location" name="campground[location]" required>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-10">
+            <label for="image" class="col-sm-2 col-form-label">Image Url</label>
+            <input type="text" class="form-control" id="image" name="campground[image]" required>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-10">
+            <label for="description" class="col-sm-2 col-form-label">Description</label>
+            <textarea type="text" class="form-control" id="description" name="campground[description]"
+                required></textarea>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-10">
+            <label for="price" class="col-form-label">Campground Price</label>
+            <div class="input-group">
+                <span class="input-group-text" id="price-label">$</span>
+                <input type="text" class="form-control" id="price" name="campground[price]" placeholder="0.00" required>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary">Add Campground</button>
+</form>
+
+</body>
