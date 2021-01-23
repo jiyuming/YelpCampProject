@@ -9,8 +9,13 @@
                 <h4><%= campground.location %> </h4>
                 <p><%= campground.description %></p>
                 <p>$<%= campground.price %>/night</p>
+                
+                <!-- show author -->
                 <p>Submitted by <%= campground.author.username %></p>
+                
             </div>
+            
+            <!-- only show delete button to author -->
             <% if(currentUser && campground.author.equals(currentUser._id)) { %>
             <div class="d-grid gap-2 d-md-block mb-3">
                 <a class="btn btn-primary" href="/campgrounds/<%= campground.id %>/edit ">Edit</a>
@@ -19,8 +24,11 @@
                 </form>
             </div>
             <% } %>
+            
         </div>
         <div>
+        
+        <!-- user who is not the campground creater can leave a review-->
             <% if(currentUser && !campground.author.equals(currentUser._id)){ %>
             <div class=" container col-6 mt-2 mb-5">
                 <h5>Leave a Review</h5>
@@ -39,6 +47,7 @@
                 </form>
             </div>
             <% } %>
+            
             <div class="row row-cols-1 row-cols-md-3 g-4 text-wrap gap-1">
                 <% for(let review of campground.reviews) { %>
                 <div class="card mt-3 mb-3">
@@ -46,12 +55,15 @@
                         <h6 class="card-title">Rating: <%= review.rating %> </h6>
                         <p class="card-text">Review: <%= review.body %> </p>
                         <p class="card-footer">by <%= review.author.username %> </p>
+                        
+                        <!-- only review author can delete the review -->
                         <% if(currentUser && review.author.equals(currentUser._id)) { %>
                         <form action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=DELETE"
                             method="POST">
                             <button class="btn btn-danger btn-sm ">Delete</button>
                         </form>
                         <% } %>
+                        
                     </div>
                 </div>
                 <% } %>
