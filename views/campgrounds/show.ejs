@@ -8,16 +8,20 @@
                 <h3><%= campground.title %></h3>
                 <h4><%= campground.location %> </h4>
                 <p><%= campground.description %></p>
-                <p>$<%= campground.price %>/day</p>
+                <p>$<%= campground.price %>/night</p>
+                <p>Submitted by <%= campground.author.username %></p>
             </div>
+            <% if(currentUser && campground.author.equals(currentUser._id)) { %>
             <div class="d-grid gap-2 d-md-block mb-3">
                 <a class="btn btn-primary" href="/campgrounds/<%= campground.id %>/edit ">Edit</a>
                 <form class="d-inline" action="/campgrounds/<%= campground._id %>?_method=DELETE " method="POST">
                     <button class="btn btn-danger">Delete</button>
                 </form>
             </div>
+            <% } %>
         </div>
         <div>
+            <% if(currentUser && !campground.author.equals(currentUser._id)){ %>
             <div class=" container col-6 mt-2 mb-5">
                 <h5>Leave a Review</h5>
                 <form class="mb3 vlidated-form " action="/campgrounds/<%= campground._id %>/reviews" method="POST"
@@ -34,16 +38,20 @@
                     <button class="btn btn-success">Submit</button>
                 </form>
             </div>
+            <% } %>
             <div class="row row-cols-1 row-cols-md-3 g-4 text-wrap gap-1">
                 <% for(let review of campground.reviews) { %>
                 <div class="card mt-3 mb-3">
                     <div class="card-body">
                         <h6 class="card-title">Rating: <%= review.rating %> </h6>
                         <p class="card-text">Review: <%= review.body %> </p>
+                        <p class="card-footer">by <%= review.author.username %> </p>
+                        <% if(currentUser && review.author.equals(currentUser._id)) { %>
                         <form action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=DELETE"
                             method="POST">
                             <button class="btn btn-danger btn-sm ">Delete</button>
                         </form>
+                        <% } %>
                     </div>
                 </div>
                 <% } %>
