@@ -1,5 +1,5 @@
 <% layout('layouts/boilerplate') %>
-<form action="/campgrounds" method="POST" novalidate class="validated-form">
+<form action="/campgrounds" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
     <div class="row mb-3">
         <div class="col-sm-10">
             <label for="title" class="col-sm-2 col-form-label">Title</label>
@@ -12,12 +12,12 @@
             <input type="text" class="form-control" id="location" name="campground[location]" required>
         </div>
     </div>
-    <div class="row mb-3">
+    <!-- <div class="row mb-3">
         <div class="col-sm-10">
             <label for="image" class="col-sm-2 col-form-label">Image Url</label>
             <input type="text" class="form-control" id="image" name="campground[image]" required>
         </div>
-    </div>
+    </div> -->
     <div class="row mb-3">
         <div class="col-sm-10">
             <label for="description" class="col-sm-2 col-form-label">Description</label>
@@ -25,12 +25,21 @@
                 required></textarea>
         </div>
     </div>
-    <div class="row mb-3">
+    <div class="row mb-4">
         <div class="col-sm-10">
             <label for="price" class="col-form-label">Campground Price</label>
             <div class="input-group">
                 <span class="input-group-text" id="price-label">$</span>
                 <input type="text" class="form-control" id="price" name="campground[price]" placeholder="0.00" required>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col-sm-10">
+            <div class="form-file custom-file">
+                <label for="image" class="form-label">Campground Image(s)</label>
+                <input class="form-control" type="file" id="image" name="image" multiple>
+                <span class="form-file-text custom-file-label"></span>
             </div>
         </div>
     </div>
