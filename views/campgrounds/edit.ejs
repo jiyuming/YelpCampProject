@@ -48,6 +48,7 @@
         <% campground.images.forEach((img, i)=>{ %>
         <img src="<%= img.url %> " class="img-thumbnail" alt="">
         <div class="form-check-inline">
+            <!-- value="<%= img.filename %> ">  has a space and Delete does not work!!!!! -->
             <input type="checkbox" id="image-<%= i %>" name="deleteImages[]" value="<%= img.filename %>">
         </div>
         <label for="image-<%= i %> ">Delete?</label>
