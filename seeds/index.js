@@ -16,13 +16,13 @@ const sample = array => array[Math.floor(Math.random() * array.length)];
 const seedDB = async () => {
     await Campground.deleteMany({});
     for (let i = 0; i < 50; i++) {
-        const random1000 = Math.floor(Math.random() * 1000);
+        const random500 = Math.floor(Math.random() * 1000 / 2);
         const price = Math.floor(Math.random() * 20) + 10;
         const camp = new Campground({
             author: '600779dc78fe8e14c8f610bf',
-            location: `${(cities[random1000].city)}, ${cities[random1000].state}`,
+            location: `${(cities[random500].name)}, ${cities[random500].province}`,
             title: `${sample(descriptors)} ${sample(places)}`,
-            image: 'https://source.unsplash.com/collection/483251',
+            images: [{ url: 'https://source.unsplash.com/collection/483251', filename: 'asdf' }, { url: 'https://source.unsplash.com/collection/483251', filename: 'asd' }],
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit?',
             price
         });
