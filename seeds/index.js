@@ -24,7 +24,11 @@ const seedDB = async () => {
             title: `${sample(descriptors)} ${sample(places)}`,
             images: [{ url: 'https://source.unsplash.com/collection/483251', filename: 'asdf' }, { url: 'https://source.unsplash.com/collection/483251', filename: 'asd' }],
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit?',
-            price
+            price,
+            geometry: {
+                type: "Point",
+                coordinates: [-79.3470, 43.6510]
+            }
         });
         await camp.save();
     }
