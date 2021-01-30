@@ -39,7 +39,8 @@ const campgroundSchema = new Schema({
     }]
 }, opts);
 
-campgroundSchema.virtual('properties.popUpMarkup').get(function () {
+campgroundSchema.virtual('properties.popUpMarkup').get(function () {  //!!!!!! '()=>{}' function is not called! 
+                                                                       //'this' will be undefined
     return `<strong><a href="/campgrounds/${this._id}">${this.title}</a><strong>
     <div class="text-wrap"><p>${this.description.substring(0, 50)} ...</p></div>`
 });
