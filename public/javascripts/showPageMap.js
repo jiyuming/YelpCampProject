@@ -1,8 +1,8 @@
 mapboxgl.accessToken = mapToken;
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-    center: campground.geometry.coordinates, // starting position [lng, lat]
+    style: 'mapbox://styles/mapbox/streets-v11', 
+    center: campground.geometry.coordinates,
     zoom: 9 // starting zoom
 });
 
